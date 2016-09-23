@@ -16,9 +16,7 @@ int x = 0;                 //x-coordinate of the top-left corner of a grid squar
 int y = 0;                 //y-coordinate of the top-left corner of a grid square
 int rows = canvas_height / grid_length;  //Number of rows in the grid
 int cols = canvas_width / grid_length;   //Number of columns in the grid
-boolean[][] state;         //Saves the state of the grid with upper-left coordinates of (x, y)
-int saved_i = -1;          //
-int saved_j = -1;
+boolean[][] state;         //Saves the state of the grid with upper-left coordinates of (x, y) 
 
 void setup()         //Function that runs before drawing anything
 {
