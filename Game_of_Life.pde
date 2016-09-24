@@ -1,8 +1,6 @@
 //-------------------------------------------------------------------------------------------------//
 //Editor: Gian Miguel Del Mundo                                                                    //
-//Creation date: 3 June 2016                                                                       //
-//Latest edit date: 23 September 2016                                                              //
-//Edit made: Can now (de)select grid squares                                                       //
+//Creation date: 3 June 2016                                                                       //                                                              //
 //Information:                                                                                     //
 //                                                                                                 //
 //1) Any live cell with fewer than two live neighbours dies, as if caused by under-population.     //
@@ -16,7 +14,7 @@
 int canvas_width = 1920;   //Set canvas width
 int canvas_height = 1080;  //Set canvas height
 int grid_length = 20;      //Set grid length
-int fps = 5;              //Set frame rate
+int fps = 5;               //Set frame rate
 int x = 0;                 //x-coordinate of the top-left corner of a grid square
 int y = 0;                 //y-coordinate of the top-left corner of a grid square
 int rows = canvas_height / grid_length;  //Number of rows in the grid
@@ -30,6 +28,7 @@ void setup()         //Function that runs before drawing anything
   size(1920, 1080);  //Set the size of the canvas
   frameRate(fps);    //Set frame rate
   background(0);     //Set background to black
+  surface.setTitle("Game of Life - Paused");
 
   state = new boolean[cols][rows];
   buffer = new boolean[cols][rows];
@@ -162,10 +161,10 @@ void keyPressed()
   
   if(start)
   {
-    surface.setTitle("Started");
+    surface.setTitle("Game of Life - Started");
   }
   else
   {
-    surface.setTitle("Paused");
+    surface.setTitle("Game of Life - Paused");
   }
 }
