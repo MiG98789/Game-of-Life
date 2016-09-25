@@ -14,7 +14,7 @@
 int canvas_width = 1920;   //Set canvas width
 int canvas_height = 1080;  //Set canvas height
 int grid_length = 20;      //Set grid length
-int fps = 5;               //Set frame rate
+int fps = 5;              //Set frame rate
 int x = 0;                 //x-coordinate of the top-left corner of a grid square
 int y = 0;                 //y-coordinate of the top-left corner of a grid square
 int rows = canvas_height / grid_length;  //Number of rows in the grid
@@ -28,7 +28,7 @@ void setup()         //Function that runs before drawing anything
   size(1920, 1080);  //Set the size of the canvas
   frameRate(fps);    //Set frame rate
   background(0);     //Set background to black
-  surface.setTitle("Game of Life - Paused");
+  surface.setTitle("Game of Life - Paused"); 
 
   state = new boolean[cols][rows];
   buffer = new boolean[cols][rows];
@@ -67,8 +67,8 @@ void draw()
           for (int checkGridy = -1; checkGridy <= 1; checkGridy++)
           {
             if ((checkGridx == 0 && checkGridy == 0) || 
-            (checkGridx + i < 0 || checkGridy + j < 0) || 
-            (checkGridx + i > cols - 1 || checkGridy + j > rows - 1))
+              (checkGridx + i < 0 || checkGridy + j < 0) || 
+              (checkGridx + i > cols - 1 || checkGridy + j > rows - 1))
             {
               continue;
             } else
@@ -81,15 +81,13 @@ void draw()
               if (state[i][j] && (count < 2 || count > 3))
               {
                 buffer[i][j] = false;
-              } else if(state[i][j] && (count >= 2 && count <= 3))
+              } else if (state[i][j] && (count >= 2 && count <= 3))
               {
                 buffer[i][j] = true;
-              }
-              else if (!state[i][j] && count == 3)
+              } else if (!state[i][j] && count == 3)
               {
                 buffer[i][j] = true;
-              }
-              else if(!state[i][j] && count != 3)
+              } else if (!state[i][j] && count != 3)
               {
                 buffer[i][j] = false;
               }
@@ -157,13 +155,26 @@ void keyPressed()
   if (key == 's')
   {
     start = !start;
+  } else if (key == 'r')
+  {
+    for (int i = 0; i < cols; i++) 
+    {
+      for (int j = 0; j < rows; j++) 
+      {
+        x = i * grid_length;
+        y = j * grid_length;
+        state[i][j] = false;
+        fill(0);
+        rectMode(CORNER);
+        rect(x, y, grid_length, grid_length);
+      }
+    }
   }
-  
-  if(start)
+
+  if (start)
   {
     surface.setTitle("Game of Life - Started");
-  }
-  else
+  } else
   {
     surface.setTitle("Game of Life - Paused");
   }
