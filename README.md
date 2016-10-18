@@ -1,5 +1,7 @@
 # Game of Life
 
+[![https://gyazo.com/81549935070746bc19ada81610b7643d](https://i.gyazo.com/81549935070746bc19ada81610b7643d.gif)](https://gyazo.com/81549935070746bc19ada81610b7643d)
+
 ## Introduction
 This program simulates Conway's Game of Life. It was made using Processing 3.
 

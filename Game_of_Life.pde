@@ -14,7 +14,7 @@
 int canvas_width = 1920;   //Set canvas width
 int canvas_height = 1080;  //Set canvas height
 int grid_length = 20;      //Set grid length
-int fps = 5;              //Set frame rate
+int fps = 120;              //Set frame rate
 int x = 0;                 //x-coordinate of the top-left corner of a grid square
 int y = 0;                 //y-coordinate of the top-left corner of a grid square
 int rows = canvas_height / grid_length;  //Number of rows in the grid
